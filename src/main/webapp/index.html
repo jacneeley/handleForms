@@ -2,14 +2,34 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>User Form</title>
 </head>
 <body>
-	<h1>User Login</h1>
+	<h1>Create User</h1>
 	<form name="loginForm" method="post" action="login">
 		Username: <input type="text" name="username" /> <br />
 		Password: <input type="text" name="password" /> <br />
-		<input type="submit" value="Login" />
+		<br />Language:
+		<input type="checkbox" name="language" value="English">English</input>
+		<input type="checkbox" name="language" value="Spanish">Spanish</input>
+		<br />Gender:
+		<input type="radio" name="gender" value="Female">Female</input>
+		<input type="radio" name="gender" value="Male">Male</input>
+		<input type="radio" name="gender" value="Non-Binary">Non-Binary</input>
+		<input type="radio" name="gender" value="N/A">N/A</input>
+		<br />
+		Bio: 
+		<br/>
+		<textarea rows="5" col="30" name="bio"></textarea>
+		Occupation:
+		<select name="occupation">
+			<option value="gamer">gamer</option>
+			<option value="redditor">redditor</option>
+			<option value="fasion rep-seller">fashion rep-seller</option>
+			<option value="doctor">doctor</option>
+			<option value="cosmonaut">cosmonaut</option>
+		</select>
+		<input type="submit" value="create" />
 	</form>
 </body>
 </html>

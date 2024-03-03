@@ -30,6 +30,28 @@ public class UserLoginServlet extends HttpServlet {
 		System.out.println("username" + username);
 		System.out.println("password" + password);
 		
+		//process form
+		String languages[] = request.getParameterValues("language");
+		String language = "";
+		if (languages !=null ) {
+			System.out.println("Languages are: ");
+			for (String lang : languages) {
+				System.out.println("\t" + lang);
+				language += lang;
+			}
+		}
+		
+		String gender = request.getParameter("gender");
+		System.out.println("Gender: " + gender);
+		
+		String bio = request.getParameter("bio");
+		System.out.println("bio: " + bio);
+		
+		String occupation = request.getParameter("occupation");
+		System.out.println("Occupation: " + occupation);
+		
+		//todo - add profile picture upload w/ upload field.
+		
 		//get response writer
 		PrintWriter writer = response.getWriter();
 		
@@ -38,6 +60,10 @@ public class UserLoginServlet extends HttpServlet {
 		htmlResponse += "<h1>User Info:</h1>";
 		htmlResponse += "<h2>"+ username + "</h2>";
 		htmlResponse += "<h2>password: " + password + "</h2>";
+		htmlResponse += "<h2>language: " + language + "</h2>";
+		htmlResponse += "<h2>gender: " + gender + "</h2>";
+		htmlResponse += "<h2>occupation: " + occupation + "</h2>";
+		htmlResponse += "<h2>bio: " + bio + "</h2>";
 		htmlResponse += "</body></html>";
 		
 		//return response
