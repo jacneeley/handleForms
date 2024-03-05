@@ -58,35 +58,6 @@ public class UserLoginServlet extends HttpServlet {
 		return "";
 	}
 	
-	private void handleImage(HttpServletRequest request,HttpServletResponse response,String fileContent) throws IOException {
-//		String URLAfterDomain = request.getRequestURI();
-//		
-//		if(URLAfterDomain.startsWith("/login/") == false) {
-//			return;
-//		}
-//		
-//		String relativePath = URLAfterDomain.substring("/images/".length());
-		
-		System.out.println(fileContent);
-		response.setContentType("image/jpeg");
-		ServletOutputStream out;
-		out = response.getOutputStream();
-		FileInputStream fin = new FileInputStream(fileContent);
-		
-		BufferedInputStream bin = new BufferedInputStream(fin);
-		BufferedOutputStream bout = new BufferedOutputStream(out);
-		
-		int ch= 0;;
-		while((ch=bin.read())!=-1) {
-			bout.write(ch);
-		}
-		
-	    bin.close();  
-	    fin.close();  
-	    bout.close();  
-	    out.close();  
-	}
-	
 	protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
 
 		//read forms
@@ -116,7 +87,7 @@ public class UserLoginServlet extends HttpServlet {
 		String occupation = request.getParameter("occupation");
 		System.out.println("Occupation: " + occupation);
 		
-		//todo - add profile picture upload w/ upload field.
+		//add profile picture upload w/ upload field.
 		File f = new File("eclipse-workspace/QuickHtmlForm/src/main/webapp");
 		String appPath = f.getAbsolutePath();
 		String savePath = appPath + File.separator + SAVE_DIR;
@@ -138,7 +109,6 @@ public class UserLoginServlet extends HttpServlet {
 		}
 		
 		System.out.println(fileName);
-		//handleImage(request, response, fileSaveDir + File.separator + fileName);
 		
 		//get response writer
 		PrintWriter writer = response.getWriter();
